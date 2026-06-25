@@ -1,0 +1,51 @@
+---
+# ══════════════════════════════════════════════════════════════
+# Redrob Hackathon Submission Metadata
+# ══════════════════════════════════════════════════════════════
+
+submission:
+  team_name: "ByteTrend"
+  challenge: "Intelligent Candidate Discovery & Ranking Challenge"
+  submission_file: "submission.csv"
+
+approach:
+  name: "Weighted Multi-Signal Ranking with Behavioral Multiplier"
+  summary: |
+    Multi-component scoring system combining skill tier weighting,
+    career trajectory analysis, product company history, experience band,
+    and location signals — multiplied by a behavioral multiplier
+    capturing recency, availability, and responsiveness.
+
+  no_external_apis: true
+  no_gpu_required: true
+  estimated_runtime_seconds: 75
+  peak_ram_gb: 2.0
+
+scoring_breakdown:
+  skill_depth:       0.30
+  career_trajectory: 0.25
+  product_company:   0.20
+  experience_band:   0.15
+  location:          0.10
+  behavioral:        "multiplicative"
+
+key_innovations:
+  - "Tier-weighted skill scoring (FAISS/embeddings 4× more valuable than Docker/SQL)"
+  - "Career description text analysis for production IR/ML signals"
+  - "Product company detection for 100+ companies vs consulting firm penalty"
+  - "Job-hopper detection (3+ stints < 18 months = 0.8x career penalty)"
+  - "5-check honeypot detection (timeline, expert-zero, keyword-stuffer, tenure, domain-mismatch)"
+  - "Behavioral multiplier captures hireability, not just fit"
+
+calibration_candidate:
+  id: "CAND_0000031"
+  description: "Recommendation Systems Engineer, 6y, Hyderabad, Swiggy/Uber/Zomato"
+  expected_rank: 1-3
+
+disqualifier_logic:
+  consulting_firms: "40-100% consulting career gets 0.4–1.0x multiplier on career score"
+  title_chasers: "3+ jobs < 18 months = 0.8x career penalty"
+  inactive_candidates: "6+ months inactive = 0.25x recency score"
+  honeypots: "Score = 0.0 (excluded from ranking)"
+
+reproduce_command: "python rank.py --candidates candidates.jsonl --out submission.csv"
