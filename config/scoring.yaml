@@ -1,0 +1,473 @@
+---
+# ══════════════════════════════════════════════════════════════
+# Redrob Candidate Ranker — Scoring Configuration
+# Edit this file to tune weights without changing Python code.
+# ══════════════════════════════════════════════════════════════
+
+# ─── Global weights (must sum to 1.0) ───────────────────────
+score_weights:
+  skill_depth:         0.30
+  career_trajectory:   0.25
+  product_company:     0.20
+  experience_band:     0.15
+  location:            0.10
+
+# ─── Skill tiers ────────────────────────────────────────────
+skill_tiers:
+  tier1:
+    weight: 2.0
+    skills:
+      - embeddings
+      - sentence-transformers
+      - sentence_transformers
+      - faiss
+      - pinecone
+      - weaviate
+      - qdrant
+      - milvus
+      - elasticsearch
+      - opensearch
+      - vector database
+      - vector search
+      - vector store
+      - semantic search
+      - hybrid search
+      - bm25
+      - information retrieval
+      - dense retrieval
+      - rag
+      - retrieval augmented generation
+      - ndcg
+      - mrr
+      - learning-to-rank
+      - learning to rank
+      - ltr
+      - reranking
+      - re-ranking
+      - ranking systems
+      - approximate nearest neighbor
+      - ann
+      - hnsw
+      - e5
+      - bge
+      - bi-encoder
+      - cross-encoder
+
+  tier2:
+    weight: 1.5
+    skills:
+      - nlp
+      - natural language processing
+      - llm
+      - large language model
+      - fine-tuning
+      - fine_tuning
+      - lora
+      - qlora
+      - peft
+      - transformers
+      - hugging face
+      - huggingface
+      - recommendation systems
+      - recommender systems
+      - ranking
+      - a/b testing
+      - ab testing
+      - mlflow
+      - evaluation frameworks
+      - text classification
+      - named entity recognition
+      - ner
+      - question answering
+      - haystack
+      - langchain
+      - llamaindex
+      - llama index
+      - spacy
+      - gensim
+      - bert
+      - roberta
+      - gpt
+      - t5
+      - search quality
+      - relevance engineering
+
+  tier3:
+    weight: 1.0
+    skills:
+      - python
+      - machine learning
+      - deep learning
+      - pytorch
+      - tensorflow
+      - keras
+      - scikit-learn
+      - sklearn
+      - xgboost
+      - lightgbm
+      - catboost
+      - feature engineering
+      - model deployment
+      - mlops
+      - model serving
+      - fastapi
+      - flask
+      - triton
+      - onnx
+      - neural networks
+      - data science
+      - statistics
+      - probability
+
+  tier4:
+    weight: 0.5
+    skills:
+      - aws
+      - gcp
+      - azure
+      - docker
+      - kubernetes
+      - k8s
+      - sql
+      - nosql
+      - spark
+      - hadoop
+      - kafka
+      - airflow
+      - distributed systems
+      - rest api
+      - microservices
+      - redis
+      - mongodb
+      - postgresql
+      - linux
+      - git
+      - ci/cd
+
+  negative:
+    weight: -1.0
+    skills:
+      - computer vision
+      - cv
+      - object detection
+      - image segmentation
+      - image classification
+      - yolo
+      - openCV
+      - robotics
+      - speech recognition
+      - automatic speech recognition
+      - asr
+
+# Career description keywords that signal IR/production ML work
+career_signal_keywords:
+  - shipped ranking
+  - production retrieval
+  - vector search
+  - embedding
+  - recommendation system
+  - search quality
+  - relevance
+  - ranking model
+  - a/b test
+  - online evaluation
+  - ndcg
+  - product company
+  - real users
+  - latency
+  - throughput
+  - indexed
+  - personalization
+  - query understanding
+  - candidate generation
+  - two-stage
+  - re-rank
+  - retrieval system
+  - search pipeline
+  - served
+  - deployed
+  - production traffic
+  - millions of
+
+# ─── Consulting firms (hard negative signals) ───────────────
+consulting_firms:
+  - tcs
+  - tata consultancy
+  - infosys
+  - wipro
+  - accenture
+  - cognizant
+  - capgemini
+  - hcl
+  - tech mahindra
+  - techmahindra
+  - mindtree
+  - hexaware
+  - mphasis
+  - l&t infotech
+  - larsen & toubro infotech
+  - cyient
+  - niit technologies
+  - patni
+  - mastech
+  - kpit
+  - persistent systems
+  - birlasoft
+  - zensar
+  - firstsource
+  - meco
+  - sonata software
+  - sasken
+  - infosonics
+
+# ─── Known product companies (positive signals) ─────────────
+product_companies:
+  - swiggy
+  - zomato
+  - uber
+  - ola
+  - flipkart
+  - meesho
+  - razorpay
+  - cred
+  - zepto
+  - dunzo
+  - groww
+  - upstox
+  - smallcase
+  - freshworks
+  - zoho
+  - chargebee
+  - browserstack
+  - postman
+  - hasura
+  - setu
+  - sarvam
+  - krutrim
+  - turing
+  - clevertap
+  - moengage
+  - sharechat
+  - dailyhunt
+  - dream11
+  - unacademy
+  - byju
+  - lenskart
+  - pharmeasy
+  - urban company
+  - nykaa
+  - boat
+  - mamaearth
+  - vedantu
+  - cars24
+  - spinny
+  - rapido
+  - yulu
+  - bounce
+  - ather
+  - ola electric
+  - google
+  - microsoft
+  - amazon
+  - meta
+  - facebook
+  - apple
+  - netflix
+  - spotify
+  - airbnb
+  - stripe
+  - twilio
+  - datadog
+  - snowflake
+  - databricks
+  - hugging face
+  - huggingface
+  - cohere
+  - openai
+  - anthropic
+  - deepmind
+  - nvidia
+  - salesforce
+  - atlassian
+  - slack
+  - shopify
+  - figma
+  - notion
+  - linear
+  - vercel
+  - cloudflare
+  - hashicorp
+  - elastic
+  - confluent
+  - dremio
+  - pinecone
+  - weaviate
+  - qdrant
+  - mad street den
+  - sigmoid
+  - fractal analytics
+  - mu sigma
+  - tiger analytics
+  - thoughtworks
+  - walmart labs
+  - walmart global tech
+  - linkedin
+  - twitter
+  - adobe
+  - oracle
+  - sap
+  - workday
+  - servicenow
+  - zendesk
+  - hubspot
+  - segment
+  - mixpanel
+  - amplitude
+  - grafana
+  - mongodb
+  - redis
+  - cockroachdb
+  - planetscale
+  - turso
+  - supabase
+  - neon
+  - instacart
+  - doordash
+  - lyft
+  - robinhood
+  - coinbase
+  - brex
+  - plaid
+  - rippling
+  - gusto
+  - lattice
+  - pagerduty
+  - sumo logic
+  - splunk
+  - new relic
+  - dynatrace
+  - sentry
+  - browserstack
+  - sauce labs
+  - ghost
+  - contentful
+  - sanity
+  - prismic
+  - webflow
+  - bubble
+  - retool
+  - airtable
+  - notion
+  - coda
+
+# ─── Title classification ────────────────────────────────────
+high_value_titles:
+  - ml engineer
+  - machine learning engineer
+  - ai engineer
+  - nlp engineer
+  - search engineer
+  - applied scientist
+  - research engineer
+  - recommendation systems engineer
+  - ranking engineer
+  - relevance engineer
+  - applied ml
+  - applied ai
+  - senior engineer
+  - staff engineer
+  - principal engineer
+  - tech lead
+  - data scientist
+
+medium_value_titles:
+  - software engineer
+  - backend engineer
+  - data engineer
+  - full stack engineer
+  - platform engineer
+  - cloud engineer
+  - devops engineer
+  - sre
+  - site reliability
+
+low_value_titles:
+  - project manager
+  - business analyst
+  - operations
+  - marketing
+  - hr manager
+  - human resources
+  - sales
+  - accountant
+  - civil engineer
+  - mechanical engineer
+  - electrical engineer
+  - content writer
+  - seo
+  - graphic designer
+  - recruiter
+
+# ─── Experience band cutoffs ────────────────────────────────
+experience_bands:
+  too_junior_max:       3.0    # score = 0.15
+  borderline_max:       5.0    # score = 0.55
+  target_min:           5.0    # score = 1.00
+  target_max:           9.0    # score = 1.00
+  slightly_senior_max:  12.0   # score = 0.75
+  # else: 0.45
+
+# ─── Location scoring ────────────────────────────────────────
+preferred_locations:          ["noida", "pune"]
+acceptable_locations:         ["gurgaon", "gurugram", "delhi", "ncr", "new delhi"]
+good_locations:               ["hyderabad", "mumbai", "bangalore", "bengaluru", "chennai"]
+
+# ─── Behavioral multiplier config ───────────────────────────
+behavioral:
+  recency_thresholds:
+    excellent:  14    # days → 1.00
+    good:       30    # days → 0.95
+    ok:         90    # days → 0.80
+    poor:       180   # days → 0.55
+    # else 0.25
+
+  availability:
+    open_to_work:     1.00
+    not_open:         0.75
+
+  responsiveness_floor:  0.40   # floor(0.4 + 0.6 × rate)
+
+  notice_thresholds:
+    immediate:  30    # days → 1.00
+    short:      60    # days → 0.88
+    medium:     90    # days → 0.72
+    # else 0.50
+
+  github_bonus_thresholds:
+    high:   60    # score → 1.05
+    medium: 30    # score → 1.00
+    none:   -1    # linked=no → 0.95
+    # else (0–29) → 0.92
+
+# ─── Honeypot detection thresholds ──────────────────────────
+honeypot:
+  timeline_multiplier:  1.25   # career months > yoe*12*1.25
+  max_expert_zero:      2      # expert skills with 0 months duration
+  max_expert_skills:    8      # total expert skills
+
+# ─── Output settings ─────────────────────────────────────────
+output:
+  top_k:            100    # final submission rows
+  keep_buffer:      300    # in-memory heap size during processing
+  chunksize:        500    # multiprocessing chunksize
+  normalize_scores: true   # normalize final scores to 0–1
+
+# ─── Skill scoring weights ───────────────────────────────────
+skill_scoring:
+  duration_cap_months:  24    # caps at 2 years
+  endorsement_cap:      20
+  proficiency_weights:
+    beginner:      0.3
+    intermediate:  0.7
+    advanced:      1.0
+    expert:        1.2
